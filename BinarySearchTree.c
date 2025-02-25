@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// The maximum length of the string that will be returned by the toString function
+// The maximum length of the string that will be returned by the binarySearchTree_toString function
 #define STRING_LENGTH 100
 
 // A node in a Binary Search Tree
@@ -20,7 +20,7 @@ typedef struct BinarySearchTree
 } BinarySearchTree;
 
 // Creates a new Binary Search Tree
-BinarySearchTree *binarySearchTreeCreate()
+BinarySearchTree *binarySearchTree_create()
 {
     BinarySearchTree *newBinarySearchTree = (BinarySearchTree *)malloc(sizeof(BinarySearchTree));
 
@@ -34,29 +34,29 @@ BinarySearchTree *binarySearchTreeCreate()
     return newBinarySearchTree;
 }
 
-// Destroys a node and all its children
-void nodeDestroy(Node *node)
+// Helper function of binarySearchTree_destroy
+void binarySearchTree_nodeDestroy(Node *node)
 {
     if (node == NULL)
     {
         return;
     }
 
-    nodeDestroy(node->left);
-    nodeDestroy(node->right);
+    binarySearchTree_nodeDestroy(node->left);
+    binarySearchTree_nodeDestroy(node->right);
 
     free(node);
 }
 
 // Destroys a Binary Search Tree
-void binarySearchTreeDestroy(BinarySearchTree *binarySearchTree)
+void binarySearchTree_destroy(BinarySearchTree *binarySearchTree)
 {
-    nodeDestroy(binarySearchTree->root);
+    binarySearchTree_nodeDestroy(binarySearchTree->root);
     free(binarySearchTree);
 }
 
-// Inserts a new value into the Binary Search Tree
-Node *nodeInsert(Node *node, int value)
+// Helper function of binarySearchTree_Insert
+Node *binarySearchTree_nodeInsert(Node *node, int value)
 {
     if (node == NULL)
     {
@@ -80,20 +80,20 @@ Node *nodeInsert(Node *node, int value)
 
     if (value < node->value)
     {
-        node->left = nodeInsert(node->left, value);
+        node->left = binarySearchTree_nodeInsert(node->left, value);
     }
     else if (value > node->value)
     {
-        node->right = nodeInsert(node->right, value);
+        node->right = binarySearchTree_nodeInsert(node->right, value);
     }
 
     return node;
 }
 
 // Inserts a new value into the Binary Search Tree
-void binarySearchTreeInsert(BinarySearchTree *binarySearchTree, int value)
+void binarySearchTree_insert(BinarySearchTree *binarySearchTree, int value)
 {
-    Node *newNode = nodeInsert(binarySearchTree->root, value);
+    Node *newNode = binarySearchTree_nodeInsert(binarySearchTree->root, value);
 
     if (binarySearchTree->root == NULL)
     {
@@ -101,27 +101,27 @@ void binarySearchTreeInsert(BinarySearchTree *binarySearchTree, int value)
     }
 }
 
-// Returns the number of elements in a node
-int nodeCount(Node *node)
+// Helper function of binarySearchTree_count
+int binarySearchTree_nodeCount(Node *node)
 {
     if (node == NULL)
     {
         return 0;
     }
 
-    return 1 + nodeCount(node->left) + nodeCount(node->right);
+    return 1 + binarySearchTree_nodeCount(node->left) + binarySearchTree_nodeCount(node->right);
 }
 
 // Returns the number of elements in a Binary Search Tree
-int count(BinarySearchTree *binarySearchTree)
+int binarySearchTree_count(BinarySearchTree *binarySearchTree)
 {
-    return nodeCount(binarySearchTree->root);
+    return binarySearchTree_nodeCount(binarySearchTree->root);
 }
 
 // Checks if the tree contains zero elements
-int isEmpty(BinarySearchTree *binarySearchTree)
+int binarySearchTree_isEmpty(BinarySearchTree *binarySearchTree)
 {
-    if (count(binarySearchTree) == 0)
+    if (binarySearchTree_count(binarySearchTree) == 0)
     {
         return 1;
     }
@@ -130,7 +130,7 @@ int isEmpty(BinarySearchTree *binarySearchTree)
 }
 
 // Checks if no more nodes can be added to the tree
-int isFull(BinarySearchTree *binarySearchTree)
+int binarySearchTree_isFull(BinarySearchTree *binarySearchTree)
 {
     Node *tempNode = (Node *)malloc(sizeof(Node));
 
@@ -144,24 +144,24 @@ int isFull(BinarySearchTree *binarySearchTree)
 }
 
 // Prints the values of the nodes in the tree to a string
-void nodePrintToString(Node *node, char *binarySearchTreeString)
+void binarySearchTree_nodePrintToString(Node *node, char *binarySearchTreeString)
 {
     if (node == NULL)
     {
         return;
     }
 
-    nodePrintToString(node->left, binarySearchTreeString);
+    binarySearchTree_nodePrintToString(node->left, binarySearchTreeString);
 
     char *buffer = (char *)malloc(sizeof(char) * 20);
     sprintf(buffer, "%d ", node->value);
     strcat(binarySearchTreeString, buffer);
 
-    nodePrintToString(node->right, binarySearchTreeString);
+    binarySearchTree_nodePrintToString(node->right, binarySearchTreeString);
 }
 
 // Returns a string representation of the Binary Search Tree
-char *toString(BinarySearchTree *binarySearchTree)
+char *binarySearchTree_toString(BinarySearchTree *binarySearchTree)
 {
     char *binarySearchTreeString = (char *)malloc(sizeof(char) * STRING_LENGTH);
 
@@ -172,13 +172,13 @@ char *toString(BinarySearchTree *binarySearchTree)
 
     binarySearchTreeString[0] = '\0';
 
-    nodePrintToString(binarySearchTree->root, binarySearchTreeString);
+    binarySearchTree_nodePrintToString(binarySearchTree->root, binarySearchTreeString);
 
     return binarySearchTreeString;
 }
 
-// Clones a node and all its children
-void nodeClone(Node *node, Node **newNode)
+// Helper function of binarySearchTree_clone
+void binarySearchTree_nodeClone(Node *node, Node **newNode)
 {
     if (node == NULL)
     {
@@ -197,40 +197,40 @@ void nodeClone(Node *node, Node **newNode)
     (*newNode)->left = NULL;
     (*newNode)->right = NULL;
 
-    nodeClone(node->left, &((*newNode)->left));
-    nodeClone(node->right, &((*newNode)->right));
+    binarySearchTree_nodeClone(node->left, &((*newNode)->left));
+    binarySearchTree_nodeClone(node->right, &((*newNode)->right));
 }
 
 // Clones a Binary Search Tree
-BinarySearchTree *clone(BinarySearchTree *binarySearchTree)
+BinarySearchTree *binarySearchTree_clone(BinarySearchTree *binarySearchTree)
 {
     if (binarySearchTree == NULL)
     {
         return NULL;
     }
 
-    BinarySearchTree *newBinarySearchTree = binarySearchTreeCreate();
+    BinarySearchTree *newBinarySearchTree = binarySearchTree_create();
 
     if (newBinarySearchTree == NULL)
     {
         return NULL;
     }
 
-    nodeClone(binarySearchTree->root, &(newBinarySearchTree->root));
+    binarySearchTree_nodeClone(binarySearchTree->root, &(newBinarySearchTree->root));
 
     return newBinarySearchTree;
 }
 
 // Removes all nodes from a Binary Search Tree
-BinarySearchTree *makeEmpty(BinarySearchTree *binarySearchTree)
+BinarySearchTree *binarySearchTree_makeEmpty(BinarySearchTree *binarySearchTree)
 {
-    nodeDestroy(binarySearchTree->root);
+    binarySearchTree_nodeDestroy(binarySearchTree->root);
     binarySearchTree->root = NULL;
     return binarySearchTree;
 }
 
 // Removes a node from a Binary Search Tree
-Node *nodeRemove(Node *node, int value)
+Node *binarySearchTree_nodeRemove(Node *node, int value)
 {
     if (node == NULL)
     {
@@ -239,11 +239,11 @@ Node *nodeRemove(Node *node, int value)
 
     if (value < node->value)
     {
-        node->left = nodeRemove(node->left, value);
+        node->left = binarySearchTree_nodeRemove(node->left, value);
     }
     else if (value > node->value)
     {
-        node->right = nodeRemove(node->right, value);
+        node->right = binarySearchTree_nodeRemove(node->right, value);
     }
     else if (node->value == value)
     {
@@ -275,38 +275,38 @@ Node *nodeRemove(Node *node, int value)
         }
 
         node->value = tempNode->value;
-        node->right = nodeRemove(node->right, tempNode->value);
+        node->right = binarySearchTree_nodeRemove(node->right, tempNode->value);
     }
 
     return node;
 }
 
 // Removes a value from a Binary Search Tree
-void binarySearchTreeRemove(BinarySearchTree *binarySearchTree, int value)
+void binarySearchTree_remove(BinarySearchTree *binarySearchTree, int value)
 {
     if (binarySearchTree == NULL || binarySearchTree->root == NULL)
     {
         return;
     }
 
-    binarySearchTree->root = nodeRemove(binarySearchTree->root, value);
+    binarySearchTree->root = binarySearchTree_nodeRemove(binarySearchTree->root, value);
 }
 
 // Stores the values of the nodes in the tree in an array in in-order traversal
-void storeInOrder(Node *node, int *arr, int *index)
+void binarySearchTree_storeInOrder(Node *node, int *arr, int *index)
 {
     if (node == NULL)
     {
         return;
     }
 
-    storeInOrder(node->left, arr, index);
+    binarySearchTree_storeInOrder(node->left, arr, index);
     arr[(*index)++] = node->value;
-    storeInOrder(node->right, arr, index);
+    binarySearchTree_storeInOrder(node->right, arr, index);
 }
 
-// Builds a balanced Binary Search Tree from a sorted array
-Node *buildBalancedTree(int *arr, int start, int end)
+// Helper function of binarySearchTree_balanceTree
+Node *binarySearchTree_buildBalancedTree(int *arr, int start, int end)
 {
     if (start > end)
     {
@@ -322,31 +322,31 @@ Node *buildBalancedTree(int *arr, int start, int end)
     }
 
     newNode->value = arr[mid];
-    newNode->left = buildBalancedTree(arr, start, mid - 1);
-    newNode->right = buildBalancedTree(arr, mid + 1, end);
+    newNode->left = binarySearchTree_buildBalancedTree(arr, start, mid - 1);
+    newNode->right = binarySearchTree_buildBalancedTree(arr, mid + 1, end);
 
     return newNode;
 }
 
 // Balances a Binary Search Tree
-void balanceTree(BinarySearchTree *tree)
+void binarySearchTree_balanceTree(BinarySearchTree *tree)
 {
     if (tree == NULL || tree->root == NULL)
     {
         return;
     }
  
-    int *arr = (int *)malloc(sizeof(int) * count(tree));
+    int *arr = (int *)malloc(sizeof(int) * binarySearchTree_count(tree));
     if (arr == NULL)
     {
         return;
     }
 
     int index = 0;
-    storeInOrder(tree->root, arr, &index);
+    binarySearchTree_storeInOrder(tree->root, arr, &index);
 
-    nodeDestroy(tree->root);
-    tree->root = buildBalancedTree(arr, 0, count(tree) - 1);
+    binarySearchTree_nodeDestroy(tree->root);
+    tree->root = binarySearchTree_buildBalancedTree(arr, 0, binarySearchTree_count(tree) - 1);
 
     free(arr);
 }

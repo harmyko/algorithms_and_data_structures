@@ -13,24 +13,24 @@ typedef struct BinarySearchTree {
     Node *root;
 } BinarySearchTree;
 
-BinarySearchTree *binarySearchTreeCreate();
-void binarySearchTreeDestroy(BinarySearchTree *binarySearchTree);
-void binarySearchTreeInsert(BinarySearchTree *binarySearchTree, int value);
-void binarySearchTreeRemove(BinarySearchTree *binarySearchTree, int value);
-int nodeCount(Node *node);
-int count(BinarySearchTree *binarySearchTree);
-int isEmpty(BinarySearchTree *binarySearchTree);
-int isFull(BinarySearchTree *binarySearchTree);
-char *toString(BinarySearchTree *binarySearchTree);
-BinarySearchTree *clone(BinarySearchTree *binarySearchTree);
-BinarySearchTree *makeEmpty(BinarySearchTree *binarySearchTree);
-void balanceTree(BinarySearchTree *tree);
-void nodeDestroy(Node *node);
-Node *nodeInsert(Node *node, int value);
-Node *nodeRemove(Node *node, int value);
-void nodePrintToString(Node *node, char *binarySearchTreeString);
-void storeInOrder(Node *node, int *arr, int *index);
-Node *buildBalancedTree(int *arr, int start, int end);
-void nodeClone(Node *node, Node **newNode);
+BinarySearchTree *binarySearchTree_create();
+void binarySearchTree_destroy(BinarySearchTree *binarySearchTree);
+void binarySearchTree_insert(BinarySearchTree *binarySearchTree, int value);
+void binarySearchTree_remove(BinarySearchTree *binarySearchTree, int value);
+int binarySearchTree_nodeCount(Node *node);
+int binarySearchTree_count(BinarySearchTree *binarySearchTree);
+int binarySearchTree_isEmpty(BinarySearchTree *binarySearchTree);
+int binarySearchTree_isFull(BinarySearchTree *binarySearchTree);
+char *binarySearchTree_toString(BinarySearchTree *binarySearchTree);
+BinarySearchTree *binarySearchTree_clone(BinarySearchTree *binarySearchTree);
+BinarySearchTree *binarySearchTree_makeEmpty(BinarySearchTree *binarySearchTree);
+void binarySearchTree_balanceTree(BinarySearchTree *tree);
+void binarySearchTree_nodeDestroy(Node *node);
+Node *binarySearchTree_nodeInsert(Node *node, int value);
+Node *binarySearchTree_nodeRemove(Node *node, int value);
+void binarySearchTree_nodePrintToString(Node *node, char *binarySearchTreeString);
+void binarySearchTree_storeInOrder(Node *node, int *arr, int *index);
+Node *binarySearchTree_buildBalancedTree(int *arr, int start, int end);
+void binarySearchTree_nodeClone(Node *node, Node **newNode);
 
 #endif 
