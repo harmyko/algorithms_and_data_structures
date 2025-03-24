@@ -1,5 +1,5 @@
-test.exe : main.c FiveQueens.h FiveQueens.o
-	gcc -std=c99 -o test.exe main.c FiveQueens.o
+test.exe : main.c PlaceQueens.h PlaceQueens.o
+	gcc -std=c99 -o test.exe main.c PlaceQueens.o
 
-FiveQueens.o : FiveQueens.c FiveQueens.h
-	gcc -c -std=c99 FiveQueens.c
+PlaceQueens.o : PlaceQueens.c PlaceQueens.h
+	gcc -c -std=c99 PlaceQueens.c

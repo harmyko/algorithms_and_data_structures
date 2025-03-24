@@ -12,14 +12,15 @@ typedef struct Tile
 typedef struct Board
 {
     Tile **tile;
+    int n;
 } Board;
 
-Board *createEmptyBoard();
+Board *createEmptyBoard(int n);
 void printBoardLegend();
 void printBoard(Board *board);
-void placeQueen(Board *board, int row, int col);
-int solveFiveQueensCoverage(Board *board);
-int solveFiveQueensCoverageAndPrintState(Board *board);
+int placeQueens(Board *board, int queensPlaced, int row, int col);
+void updateSafety(Board *board, int row, int col, int value);
+int solveQueens(Board *board, int numQueens);
 void destroyBoard(Board *board);
 
 
