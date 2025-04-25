@@ -8,6 +8,6 @@
 - **BinarySearchTree.h** – duomenų tipų ir funkcijų aprašymas.
 - **main.c** – testavimo programa, išbandanti visas sukurtas funkcijas.
 - **Go.cmd** - paleidimo programa, kuri sukompiliuoja programą tiek asmeniniame kompiuteryje, tiek fakulteto kompiuteryje, bei paleidžia programą.
-- **LFF.xlsx** - dokumentas su laiko fiksavimo forma.
+- **PSP.xlsx** - dokumentas su laiko fiksavimo forma.
 - **Makefile** - sukompiliuoja programą.
 - **ReadMe.md** - trumpas pirmojo laboratorinio darbo aprašas.
