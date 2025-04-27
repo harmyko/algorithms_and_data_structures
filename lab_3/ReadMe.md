@@ -1,4 +1,4 @@
-# Aerouosto simuliacija
+# Aerouosto modeliavimas
 
 ## Užduoties sąlyga
 

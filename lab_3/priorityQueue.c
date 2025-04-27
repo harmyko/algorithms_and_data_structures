@@ -155,3 +155,31 @@ void freePriorityQueue(PriorityQueue *pq)
   free(pq->nodes);
   free(pq);
 }
+
+dn_type peekAt(PriorityQueue *pq, size_t index)
+{
+    if (index >= pq->size)
+        return NULL;
+    return pq->nodes[index]->data;
+}
+
+dn_type removeAt(PriorityQueue *pq, size_t index)
+{
+    if (index >= pq->size)
+        return NULL;
+
+    dn_type data = pq->nodes[index]->data;
+    free(pq->nodes[index]);
+
+    for (size_t i = index; i < pq->size - 1; i++)
+    {
+        pq->nodes[i] = pq->nodes[i + 1];
+    }
+
+    pq->size--;
+    pq->isFull = 0;
+
+    return data;
+}
+
+

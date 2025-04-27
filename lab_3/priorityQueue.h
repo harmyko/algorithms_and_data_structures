@@ -33,5 +33,7 @@ char dequeue(PriorityQueue *pq);
 dn_type peek(PriorityQueue *pq);
 dn_type pop(PriorityQueue *pq);
 void freePriorityQueue(PriorityQueue *pq);
+dn_type peekAt(PriorityQueue *pq, size_t index);
+dn_type removeAt(PriorityQueue *pq, size_t index);
 
 #endif
