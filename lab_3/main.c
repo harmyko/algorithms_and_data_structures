@@ -16,15 +16,12 @@ int main()
 
     // Run the simulation
     run_simulation(airport, max_steps);
-    printf("make\n");
 
-    // Show results
+    // Print results
     print_simulation_results(airport);
-    printf("make\n");
 
-    // Clean up
+    // Clean up memory
     destroy_airport(airport);
-    printf("make\n");
 
     return 0;
 }

@@ -19,10 +19,10 @@ Simulation parameters:
 Simulation Results:
 
 ## Projekto struktūra
-- **priorityQueue.h** - prioritetinės eilės antraštinis failas. *(Autorius ugva1377)*
-- **priorityQueue.c** - prioritetinės eilės implementacija. *(Autorius ugva1377)*
-- **BigInteger.h** - didelių sveikų skaičių antraštinis failas. *(Autorius emsa0885)*
-- **BigInteger.c** - didelių sveikų skaičių implementacija. *(Autorius emsa0885)*
+- **priorityQueue.h** - prioritetinės eilės antraštinis failas. *(Autorius: ugva1377)*
+- **priorityQueue.c** - prioritetinės eilės implementacija. *(Autorius: ugva1377)*
+- **BigInteger.h** - didelių sveikų skaičių antraštinis failas. *(Autorius: emsa0885)*
+- **BigInteger.c** - didelių sveikų skaičių implementacija. *(Autorius: emsa0885)*
 - **airport_sim.h** - aerouosto simuliacijos antraštinis failas.
 - **airport_sim.c** - pagrindinė aerouosto simuliacijos logika.
 - **main.c** - programos paleidimo ir valdymo logika.

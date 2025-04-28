@@ -112,10 +112,6 @@ char dequeue(PriorityQueue *pq)
 
   size_t lastNodeIndex = pq->size - 1;
 
-  if (pq->nodes[lastNodeIndex]->data)
-  {
-    free(pq->nodes[lastNodeIndex]->data);
-  }
   free(pq->nodes[lastNodeIndex]);
 
   pq->size--;

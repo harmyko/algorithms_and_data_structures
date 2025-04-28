@@ -102,37 +102,22 @@ void run_simulation(Airport *airport, int max_steps)
         {
             if (!isEmpty(airport->landing_queue))
             {
-                printf("1\n");
                 Plane *plane = (Plane *)pop(airport->landing_queue);
-                printf("2\n");
-                free(plane);
                 airport->runway_busy_time = airport->landing_duration;
-                printf("3\n");
-                return;
                 airport->landed_planes++;
-                printf("4\n");
                 BigInteger *wait = createBigIntegerFromInt(plane->wait_time);
-                printf("5\n");
                 BigInteger *new_total = addTwoBigIntegers(airport->total_landing_wait, wait);
-                printf("6\n");
                 freeBigInteger(airport->total_landing_wait);
-                printf("7\n");
                 freeBigInteger(wait);
-                printf("8\n");
                 airport->total_landing_wait = new_total;
-                printf("9\n");
                 if (plane->wait_time > airport->max_landing_wait)
                 {
                     airport->max_landing_wait = plane->wait_time;
-                    printf("10\n");
                 }
-                printf("11\n");
                 free(plane);
-                printf("12\n");
             }
             else if (!isEmpty(airport->takeoff_queue))
             {
-                printf("11111\n");
                 Plane *plane = (Plane *)pop(airport->takeoff_queue);
                 airport->runway_busy_time = airport->takeoff_duration;
                 airport->took_off_planes++;
@@ -147,11 +132,7 @@ void run_simulation(Airport *airport, int max_steps)
                 }
                 free(plane);
             }
-
-            printf("post if\n");
         }
-
-        printf("end of for\n");
 
         if (airport->runway_busy_time > 0)
             airport->runway_busy_time--;
@@ -221,7 +202,7 @@ void print_airport_details(Airport *airport)
     printf("Max Takeoff Wait: %d\n", airport->max_takeoff_wait);
 }
 
-void print_airplane_details(Plane *plane)
+void print_plane_details(Plane *plane)
 {
     if (plane == NULL)
     {

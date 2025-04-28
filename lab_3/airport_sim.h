@@ -36,12 +36,12 @@ typedef struct
     int max_takeoff_wait; // Max wait for takeoff
 } Airport;
 
-// Airport simulation API
+// Airport simulation
 Airport *create_airport(int landing_duration, int takeoff_duration, int max_air_time, double arrival_probability);
 void destroy_airport(Airport *airport);
 void run_simulation(Airport *airport, int max_steps);
 void print_simulation_results(const Airport *airport);
 void print_airport_details(Airport *airport);
-void print_airplane_details(Plane *plane);
+void print_plane_details(Plane *plane);
 
 #endif // AIRPORT_SIM_H
