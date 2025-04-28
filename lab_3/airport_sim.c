@@ -175,18 +175,15 @@ void print_airport_details(Airport *airport)
         return;
     }
 
-    // Print the PriorityQueue sizes (if they are not NULL)
     printf("Landing Queue Size: %lld\n", airport->landing_queue ? airport->landing_queue->size : 0);
     printf("Takeoff Queue Size: %lld\n", airport->takeoff_queue ? airport->takeoff_queue->size : 0);
 
-    // Print the integer fields
     printf("Runway Busy Time: %d\n", airport->runway_busy_time);
     printf("Landing Duration: %d\n", airport->landing_duration);
     printf("Takeoff Duration: %d\n", airport->takeoff_duration);
     printf("Max Air Time: %d\n", airport->max_air_time);
     printf("Arrival Probability: %.2f\n", airport->arrival_probability);
 
-    // Print the BigInteger fields
     printf("Total Landing Wait Time: ");
     printBigInteger(airport->total_landing_wait);
     printf("\n");
@@ -195,7 +192,6 @@ void print_airport_details(Airport *airport)
     printBigInteger(airport->total_takeoff_wait);
     printf("\n");
 
-    // Print the other integer fields
     printf("Landed Planes: %d\n", airport->landed_planes);
     printf("Took Off Planes: %d\n", airport->took_off_planes);
     printf("Max Landing Wait: %d\n", airport->max_landing_wait);
@@ -210,7 +206,6 @@ void print_plane_details(Plane *plane)
         return;
     }
 
-    // Print the plane's type
     if (plane->type == LANDING)
     {
         printf("Plane Type: LANDING\n");
@@ -220,10 +215,8 @@ void print_plane_details(Plane *plane)
         printf("Plane Type: TAKEOFF\n");
     }
 
-    // Print the wait time
     printf("Wait Time: %d\n", plane->wait_time);
 
-    // Print the fuel time left (only for landing planes)
     if (plane->type == LANDING)
     {
         printf("Fuel Time Left: %d\n", plane->fuel_time_left);
