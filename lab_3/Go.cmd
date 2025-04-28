@@ -20,7 +20,8 @@ echo Edit the text file to run your own tests.
 pause
 
 echo Running airport_sim.exe with parameters from tests.txt file.
-airport_sim.exe -test
+airport_sim.exe -test > results.txt
+type results.txt
 
 echo.
 echo Done. Results have been saved to results.txt as well.
