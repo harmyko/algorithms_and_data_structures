@@ -22,8 +22,20 @@ This lab involves placing 5 queens on a chessboard such that every square is con
 - `Makefile` - Compiles the program.
 - `ReadMe.md` - A brief description of the second lab in Lithuanian.
 
-## lab_3: (Not Done Yet)
-Description and project structure to be filled in later.
+## lab_3: Airport Simulation
+In this lab, I simulate an airport with a single runway, where landing planes have priority over taking off planes, and study the system's performance under varying load conditions, including wait times and fuel constraints for both types of planes.
+- `priorityQueue.h` - Priority queue header file. *(Author: ugva1377)*
+- `priorityQueue.c` - Priority queue implementation. *(Author: ugva1377)*
+- `BigInteger.h` - Big integer header file. *(Author: emsa0885)*
+- `BigInteger.c` - Big integer implementation. *(Author: emsa0885)*
+- `airport_sim.h` - Airport simulation header file.
+- `airport_sim.c` - Main airport simulation logic.
+- `main.c` - Program launch and control logic.
+- `tests.txt` - Text file with test parameters.
+- `PSP.xlsx` - A document with all sorts of nonsense.
+- `Makefile` - Compilation instructions.
+- `Go.cmd` - Automation script for Windows.
+
 
 ## lab_4: (Not Done Yet)
 Description and project structure to be filled in later.
