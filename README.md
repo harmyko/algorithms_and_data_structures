@@ -37,5 +37,14 @@ In this lab, I simulate an airport with a single runway, where landing planes ha
 - `Go.cmd` - Automation script for Windows.
 
 
-## lab_4: (Not Done Yet)
-Description and project structure to be filled in later.
+## lab_4: Fastest Route Finder in a Flight Network
+This lab implements a flight network simulator that allows the user to find the fastest travel route between two cities based on departure times and durations of available flights. The program supports both default hardcoded test cases and custom input from a file or standard input.
+- `flight_graph.h` - Core header file.
+- `flight_graph.c` - Core graph and flight management logic.
+- `main.c` - Program entry point with default/custom test runners and input handling.
+- `Go.cmd` - A script to compile and run the program.
+- `PSP.xlsx` - Time tracking and planning document.
+- `Makefile` - Compilation instructions.
+- `ReadMe.md` - Lab description in Lithuanian.
+
+# And that is all.
