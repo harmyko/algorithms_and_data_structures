@@ -1,3 +1,6 @@
+#ifndef FLIGHT_GRAPH_H
+#define FLIGHT_GRAPH_H
+
 #define MAX_CITIES 100
 #define MAX_NAME_LENGTH 50
 
@@ -44,3 +47,5 @@ int find_fastest_route(FlightGraph *graph, const char *source_city_name, const c
                         int *route, int *route_length);
 
 void free_graph(FlightGraph *graph);
+
+#endif // FLIGHT_GRAPH_H
